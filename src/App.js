@@ -5,12 +5,15 @@ import Products from './components/Products';
 import NewProduct from './components/NewProduct';
 import EditProduct from './components/EditProduct';
 
+// Redux
+import {Provider, } from 'react-redux';
+import store from './store';
 
 
 function App() {
   return (
-    <>
       <BrowserRouter>
+        <Provider store={store}>
         <Header />
         <div className="container mt-4">
           <Switch>
@@ -19,8 +22,8 @@ function App() {
             <Route exact path="/products/edit:id" component={EditProduct}/>
           </Switch>
         </div>
+        </Provider>
       </BrowserRouter>
-    </>
   );
 }
 
